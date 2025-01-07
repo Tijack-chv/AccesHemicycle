@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonStart = new System.Windows.Forms.Button();
             this.pictureBoxCamera = new System.Windows.Forms.PictureBox();
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRead = new System.Windows.Forms.Button();
             this.textBoxContenu = new System.Windows.Forms.TextBox();
-            this.timerCamera = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +45,7 @@
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // pictureBoxCamera
             // 
@@ -82,6 +81,7 @@
             this.buttonRead.TabIndex = 4;
             this.buttonRead.Text = "Read";
             this.buttonRead.UseVisualStyleBackColor = true;
+            this.buttonRead.Click += new System.EventHandler(this.buttonRead_Click);
             // 
             // textBoxContenu
             // 
@@ -91,10 +91,6 @@
             this.textBoxContenu.Name = "textBoxContenu";
             this.textBoxContenu.Size = new System.Drawing.Size(335, 140);
             this.textBoxContenu.TabIndex = 5;
-            // 
-            // timerCamera
-            // 
-            this.timerCamera.Tick += new System.EventHandler(this.timerCamera_Tick);
             // 
             // Form1
             // 
@@ -126,7 +122,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRead;
         private System.Windows.Forms.TextBox textBoxContenu;
-        private System.Windows.Forms.Timer timerCamera;
     }
 }
 
