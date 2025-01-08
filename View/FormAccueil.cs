@@ -25,16 +25,19 @@ namespace AccesHemiCycle.View
         SousFormulaire sousF;
         #endregion
 
+        #region Constructeur
         public FormAccueil()
         {
             InitializeComponent();
         }
+        #endregion
 
         /// <summary>
         /// Charge au démarage de l'application les caméras utilisables dans la combobox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        #region FormAccueil_Load
         private void FormAccueil_Load(object sender, EventArgs e)
         {
             captureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -42,12 +45,14 @@ namespace AccesHemiCycle.View
             comboBoxCamera.SelectedIndex = 0;
             finalVideo = new VideoCaptureDevice();
         }
+        #endregion
 
         /// <summary>
         /// Démarre la caméra sélectionnée dans la combobox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        #region buttonStart_Click
         private void buttonStart_Click(object sender, EventArgs e)
         {
             if (sousF != null)
@@ -58,12 +63,14 @@ namespace AccesHemiCycle.View
             finalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame);
             finalVideo.Start();
         }
+        #endregion
 
         /// <summary>
         /// Affiche le flux vidéo de la caméra dans le pictureBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="eventArgs"></param>
+        #region FinalVideo_NewFrame
         private void FinalVideo_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             try
@@ -80,12 +87,14 @@ namespace AccesHemiCycle.View
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
 
         /// <summary>
         /// Arrête la caméra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        #region FormAccueil_FormClosing
         private void FormAccueil_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (finalVideo.IsRunning == true)
@@ -93,12 +102,14 @@ namespace AccesHemiCycle.View
                 finalVideo.Stop();
             }
         }
+        #endregion
 
         /// <summary>
         /// Analyse le rendu de la caméra afin de lire le contenu du Qr Code si celui-ci est de type VCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        #region buttonRead_Click
         private void buttonRead_Click(object sender, EventArgs e)
         {
             BarcodeReader reader = new BarcodeReader();
@@ -149,26 +160,28 @@ namespace AccesHemiCycle.View
                 MessageBox.Show(ex.Message);
             }
         }
-
-
+        #endregion
 
         /// <summary>
         /// Vérifie si le contenu du Qr Code est de type VCard
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
+        #region IsVcard
         public bool IsVcard(string content)
         {
             if (content == null) return false;
             //on peut rajouter d'autres conditions pour être plus précis comme pour N: ou FN: etc, pour le formalisme du Qr Code
             else return content.StartsWith("BEGIN:VCARD") && content.Contains("VERSION:") && content.EndsWith("END:VCARD");
         }
+        #endregion
 
         /// <summary>
         /// Permet de récupérer les éléments composant un Qr Code de type VCard
         /// </summary>
         /// <param name="vcardContent"></param>
         /// <returns></returns>
+        #region RecuperationVCard
         private Dictionary<string, string> RecuperationVCard(string vCardContenu)
         {
             var vcardData = new Dictionary<string, string>();
@@ -211,5 +224,6 @@ namespace AccesHemiCycle.View
             }
             return vcardData;
         }
+        #endregion
     }
 }

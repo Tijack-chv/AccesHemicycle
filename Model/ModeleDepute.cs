@@ -96,6 +96,10 @@ namespace AccesHemiCycle
             return test;
         }
 
+        /// <summary>
+        /// Permet de compter le nombre de députés actifs
+        /// </summary>
+        /// <returns></returns>
         public int CountDeputes()
         {
             int value = 0;
@@ -122,6 +126,11 @@ namespace AccesHemiCycle
             return value;
         }
 
+        /// <summary>
+        /// Permet de lister les députés actifs avec le filtre sur le nom et prénom
+        /// </summary>
+        /// <param name="recherche"></param>
+        /// <returns></returns>
         public DataTable ListDepute(string recherche)
         {
             DataTable dataDeputes = new DataTable();
@@ -148,6 +157,11 @@ namespace AccesHemiCycle
             return dataDeputes;
         }
 
+        /// <summary>
+        /// Permet de lister les députés actifs avec une pagination de 20 députés par page
+        /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <returns></returns>
         public DataTable ListDepute(int pageNumber)
         {
             DataTable dataDeputes = new DataTable();
@@ -172,15 +186,6 @@ namespace AccesHemiCycle
             {
                 MessageBox.Show(ex.Message);
             }
-
-            return dataDeputes;
-        }
-
-        public DataTable ListDeputePresentAuj()
-        {
-            DataTable dataDeputes = new DataTable();
-
-
 
             return dataDeputes;
         }

@@ -12,9 +12,11 @@ namespace AccesHemiCycle.View
 {
     public partial class FormHemicycle : Form
     {
+        #region Constructeur
         public FormHemicycle()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

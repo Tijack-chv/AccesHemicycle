@@ -12,8 +12,12 @@ namespace AccesHemiCycle.View
 {
     public partial class FormDeputes : Form
     {
+        #region Attribut
         private int minPage;
         private int maxPage;
+        #endregion
+
+        #region Constructeur
         public FormDeputes()
         {
             InitializeComponent();
@@ -24,8 +28,13 @@ namespace AccesHemiCycle.View
             nbPages();
             buttonSuivant.Enabled = maxPage == 1 ? false : true;
         }
+        #endregion
 
-        private void affichage ()
+        /// <summary>
+        /// Affiche les députés dans le dataGridView avec une vérification de si une recherche est effectuée ou non
+        /// </summary>
+        #region affichage
+        private void affichage()
         {
             ModeleDepute deputes = new ModeleDepute();
             DataView dataView;
@@ -40,7 +49,12 @@ namespace AccesHemiCycle.View
             dataGridViewDeputes.DataSource = dataView;
             dataGridViewDeputes.Columns[0].Visible = false;
         }
+        #endregion
 
+        /// <summary>
+        /// Calcul le nombre de pages en fonction du nombre de députés
+        /// </summary>
+        #region nbPages
         private void nbPages()
         {
             ModeleDepute deputes = new ModeleDepute();
@@ -53,7 +67,14 @@ namespace AccesHemiCycle.View
                 maxPage = (deputes.CountDeputes() / 20) + 1;
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Permet de gérer la possibilité de rentrer dans l'Hémicycle pour un député en cas d'oublie de carte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region dataGridViewDeputes_DoubleClick
         private void dataGridViewDeputes_DoubleClick(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Acceptez-vous que le député"+ dataGridViewDeputes.CurrentRow.Cells[1].Value.ToString() 
@@ -77,7 +98,14 @@ namespace AccesHemiCycle.View
                 MessageBox.Show("Accès refusé", "Accès député", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Permet de gérer toute la pagination de la datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region Pagination
         private void textBoxPage_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -133,12 +161,26 @@ namespace AccesHemiCycle.View
             page--;
             textBoxPage.Text = page.ToString();
         }
+        #endregion
 
+        /// <summary>
+        /// Permet de rechercher un député en fonction de son nom ou prénom
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region textBoxSearch_TextChanged
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             affichage();
         }
+        #endregion
 
+        /// <summary>
+        /// Permet d'afficher la photo du député en fonction de son id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region afficherLaPhotoToolStripMenuItem_Click
         private void afficherLaPhotoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string value = dataGridViewDeputes.CurrentRow.Cells[0].Value.ToString();
@@ -147,5 +189,6 @@ namespace AccesHemiCycle.View
             pictureBoxDepute.ImageLocation = url;
             pictureBoxDepute.Visible = true;
         }
+        #endregion
     }
 }

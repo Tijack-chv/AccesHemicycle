@@ -15,6 +15,13 @@ namespace AccesHemiCycle.Model
         private ConnexionBdd conn;
         #endregion
 
+        /// <summary>
+        /// Permet de vérifier si l'utilisateur a les droits d'accès
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        #region AccesDroitDeputes
         public bool AccesDroitDeputes(string mail, string password)
         {
             conn = new ConnexionBdd();
@@ -54,5 +61,6 @@ namespace AccesHemiCycle.Model
             }
             return test;
         }
+        #endregion
     }
 }

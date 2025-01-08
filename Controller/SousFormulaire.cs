@@ -21,6 +21,10 @@ namespace AccesHemiCycle.Controller
         }
         #endregion
 
+        /// <summary>
+        /// Permet d'ouvrir un formulaire enfant dans le panel
+        /// </summary>
+        /// <param name="formEnfant"></param>
         #region openChildForm
         public void openChildForm(Form formEnfant)
         {
@@ -38,6 +42,9 @@ namespace AccesHemiCycle.Controller
         }
         #endregion
 
+        /// <summary>
+        /// Permet de fermer un formulaire enfant
+        /// </summary>
         #region closeChildForm
         public void closeChildForm()
         {

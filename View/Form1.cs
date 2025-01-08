@@ -26,7 +26,7 @@ namespace AccesHemiCycle
         public SousFormulaire sousF;
         #endregion
 
-        #region Form1
+        #region Constructeur
         public Form1()
         {
             InitializeComponent();

@@ -18,6 +18,9 @@ namespace AccesHemiCycle
         private string _password;
         #endregion
 
+        /// <summary>
+        /// Initialise la connexion à la base de données
+        /// </summary>
         #region Initialise
         private void Init()
         {

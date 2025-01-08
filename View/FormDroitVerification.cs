@@ -14,11 +14,19 @@ namespace AccesHemiCycle.View
 {
     public partial class FormDroitVerification : Form
     {
+        #region Constructeur
         public FormDroitVerification()
         {
             InitializeComponent();
         }
+        #endregion
 
+        /// <summary>
+        /// Méthode qui permet de vérifier si l'email et le mot de passe sont corrects
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region buttonValider_Click
         private void buttonValider_Click(object sender, EventArgs e)
         {
             if (textBoxMail.Text == "" || textBoxPassword.Text == "")
@@ -62,10 +70,18 @@ namespace AccesHemiCycle.View
                 }
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Méthode qui permet de fermer la fenêtre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region buttonAnnuler_Click
         private void buttonAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
     }
 }

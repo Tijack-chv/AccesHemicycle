@@ -12,6 +12,7 @@ namespace AccesHemiCycle.View
 {
     public partial class FormCarteInfoDepute : Form
     {
+        #region Constructeur
         public FormCarteInfoDepute(string value, string nom, string prenom, string mail)
         {
             InitializeComponent();
@@ -20,5 +21,6 @@ namespace AccesHemiCycle.View
             labelMail.Text = mail;
             pictureBoxDepute.ImageLocation = "https://datan.fr/assets/imgs/deputes_original/depute_" + value + ".png";
         }
+        #endregion
     }
 }
