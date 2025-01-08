@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -16,6 +17,14 @@ namespace AccesHemiCycle
         private ConnexionBdd conn;
         #endregion
 
+        /// <summary>
+        /// Permet de vérifier si les informations du Qr Code scanné sont bien celles d'un député
+        /// </summary>
+        /// <param name="identite"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public bool AccesDepute(string identite, string nom, string prenom, string email) // autre si besoin
         {
             conn = new ConnexionBdd();
@@ -50,6 +59,11 @@ namespace AccesHemiCycle
             return test;
         }
 
+        /// <summary>
+        /// Permet d'enregistrer l'entrée d'un député correspondant au scan du Qr Code 
+        /// </summary>
+        /// <param name="identite"></param>
+        /// <returns></returns>
         public bool EntreeDepute(string identite)
         {
             bool test = true;
@@ -76,6 +90,32 @@ namespace AccesHemiCycle
             }
 
             return test;
+        }
+
+        public DataTable ListDepute()
+        {
+            DataTable dataDeputes = new DataTable();
+            conn = new ConnexionBdd();
+            string rqtSql = "SELECT nom, prenom, mail,";
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return dataDeputes;
+        }
+
+        public DataTable ListDeputePresentAuj()
+        {
+            DataTable dataDeputes = new DataTable();
+
+
+
+            return dataDeputes;
         }
     }
 }

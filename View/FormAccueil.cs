@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AccesHemiCycle.Controller;
 using AForge;
 using AForge.Imaging.Filters;
 using AForge.Video;
@@ -15,29 +15,27 @@ using AForge.Video.DirectShow;
 using ZXing;
 using ZXing.Aztec;
 
-
-namespace AccesHemiCycle
+namespace AccesHemiCycle.View
 {
-    public partial class Form1 : Form
+    public partial class FormAccueil : Form
     {
         #region Attribut
         private FilterInfoCollection captureDevice;
         private VideoCaptureDevice finalVideo;
+        SousFormulaire sousF;
         #endregion
 
-        #region Form1
-        public Form1()
+        public FormAccueil()
         {
             InitializeComponent();
         }
-        #endregion
 
         /// <summary>
-        /// Charge au démarage de l'application les caméras disponibles dans la combobox
+        /// Charge au démarage de l'application les caméras utilisables dans la combobox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormAccueil_Load(object sender, EventArgs e)
         {
             captureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo Device in captureDevice) comboBoxCamera.Items.Add(Device.Name);
@@ -84,7 +82,7 @@ namespace AccesHemiCycle
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormAccueil_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (finalVideo.IsRunning == true)
             {
@@ -107,9 +105,9 @@ namespace AccesHemiCycle
                 string decoded = result?.Text?.Trim();
                 if (decoded != "" && IsVcard(decoded))
                 {
-                    Form1_FormClosing(sender, null);
+                    FormAccueil_FormClosing(sender, null);
 
-                    Dictionary<string,string> listVCard = new Dictionary<string,string>();
+                    Dictionary<string, string> listVCard = new Dictionary<string, string>();
                     listVCard = RecuperationVCard(decoded);
 
                     textBoxContenu.Text = listVCard["Name"];
@@ -129,7 +127,7 @@ namespace AccesHemiCycle
                         MessageBox.Show("Accès autorisé !");
 
                         string value = listVCard["Organization"].Substring(2);
-                        pictureBoxCamera.ImageLocation = "https://datan.fr/assets/imgs/deputes_original/depute_"+value+".png";
+                        pictureBoxCamera.ImageLocation = "https://datan.fr/assets/imgs/deputes_original/depute_" + value + ".png";
 
                         if (modeleDepute.EntreeDepute(listVCard["Organization"]))
                         {
@@ -155,6 +153,8 @@ namespace AccesHemiCycle
                 MessageBox.Show(ex.Message);
             }
         }
+
+
 
         /// <summary>
         /// Vérifie si le contenu du Qr Code est de type VCard
