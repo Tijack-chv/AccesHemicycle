@@ -1,12 +1,16 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AccesHemiCycle
@@ -92,14 +96,77 @@ namespace AccesHemiCycle
             return test;
         }
 
-        public DataTable ListDepute()
+        public int CountDeputes()
+        {
+            int value = 0;
+            conn = new ConnexionBdd();
+            string rqtSql = "SELECT COUNT(id) as nb FROM deputes_active;";
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.Connexion))
+                {
+                    conn.Connexion.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        value = reader.GetInt32("nb");
+                    }
+                    reader.Close();
+                    conn.Connexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return value;
+        }
+
+        public DataTable ListDepute(string recherche)
         {
             DataTable dataDeputes = new DataTable();
             conn = new ConnexionBdd();
-            string rqtSql = "SELECT nom, prenom, mail,";
+            string rqtSql = "SELECT id, nom, prenom, mail, villeNaissance, naissance FROM deputes_active WHERE nom LIKE @recherche OR prenom LIKE @recherche;";
+
             try
             {
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.Connexion))
+                {
+                    cmd.Parameters.AddWithValue("@recherche", "%" + recherche + "%");
+                    conn.Connexion.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dataDeputes.Load(reader);
+                    reader.Close();
+                    conn.Connexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+            return dataDeputes;
+        }
+
+        public DataTable ListDepute(int pageNumber)
+        {
+            DataTable dataDeputes = new DataTable();
+            conn = new ConnexionBdd();
+            int pageSize = 20;
+            int nbValue = (pageNumber - 1) * pageSize;
+            string rqtSql = "SELECT id, nom, prenom, mail, villeNaissance, naissance FROM deputes_active LIMIT @pageSize OFFSET @nbValue;";
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.Connexion))
+                {
+                    cmd.Parameters.AddWithValue("@pageSize", pageSize);
+                    cmd.Parameters.AddWithValue("@nbValue", nbValue);
+                    conn.Connexion.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dataDeputes.Load(reader);
+                    reader.Close();
+                    conn.Connexion.Close();
+                }
             }
             catch (Exception ex)
             {

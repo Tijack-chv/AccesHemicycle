@@ -23,7 +23,7 @@ namespace AccesHemiCycle
     public partial class Form1 : Form
     {
         #region Attribut
-        SousFormulaire sousF;
+        public SousFormulaire sousF;
         #endregion
 
         #region Form1
@@ -35,10 +35,17 @@ namespace AccesHemiCycle
         }
         #endregion
 
+        /// <summary>
+        /// Permet de fermer l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region labelExit_Click
         private void labelExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        #endregion
 
         /// <summary>
         /// Permet de réaliser l'intéraction Hover sur les différents labels
@@ -91,6 +98,12 @@ namespace AccesHemiCycle
         }
         #endregion
 
+        /// <summary>
+        /// Permet de changer de page en cliquant sur les labels
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region Changement de page
         private void labelAccueil_Click(object sender, EventArgs e)
         {
             labelAccueil.ForeColor = Color.Red;
@@ -118,7 +131,10 @@ namespace AccesHemiCycle
             labelHemicycle.ForeColor = Color.MidnightBlue;
             labelHemicycle.Font = new Font(labelAccueil.Font, FontStyle.Regular);
 
-            sousF.openChildForm(new FormDeputes());
+            FormDroitVerification droit = new FormDroitVerification();
+            droit.ShowDialog();
+
+            //sousF.openChildForm(new FormDeputes());
         }
 
         private void labelHemicycle_Click(object sender, EventArgs e)
@@ -135,7 +151,13 @@ namespace AccesHemiCycle
 
             sousF.openChildForm(new FormHemicycle());
         }
+        #endregion
 
+        /// <summary>
+        /// Permet d'accéder aux réseaux sociaux de l'Assemblée Nationale
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region Lien Réseaux Sociaux
         private void pictureBoxTwitter_Click(object sender, EventArgs e)
         {

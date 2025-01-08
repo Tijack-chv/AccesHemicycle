@@ -50,6 +50,10 @@ namespace AccesHemiCycle.View
         /// <param name="e"></param>
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            if (sousF != null)
+            {
+                sousF.closeChildForm();
+            }
             finalVideo = new VideoCaptureDevice(captureDevice[comboBoxCamera.SelectedIndex].MonikerString);
             finalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame);
             finalVideo.Start();
@@ -109,29 +113,21 @@ namespace AccesHemiCycle.View
 
                     Dictionary<string, string> listVCard = new Dictionary<string, string>();
                     listVCard = RecuperationVCard(decoded);
-
-                    textBoxContenu.Text = listVCard["Name"];
-                    textBoxContenu.Text += Environment.NewLine;
-                    textBoxContenu.Text += listVCard["FirstName"];
-                    textBoxContenu.Text += Environment.NewLine;
-                    textBoxContenu.Text += listVCard["Organization"];
-                    textBoxContenu.Text += Environment.NewLine;
-                    textBoxContenu.Text += listVCard["Email"];
-
                     ModeleDepute modeleDepute = new ModeleDepute();
-
-                    MessageBox.Show("Le Qr Code a été reconnu, il est bien de type VCard !");
+                    //MessageBox.Show("Le Qr Code a été reconnu, il est bien de type VCard !");
 
                     if (modeleDepute.AccesDepute(listVCard["Organization"], listVCard["Name"], listVCard["FirstName"], listVCard["Email"]))
                     {
-                        MessageBox.Show("Accès autorisé !");
+                        //MessageBox.Show("Accès autorisé !");
 
+                        sousF = new SousFormulaire(panelBackCamera);
                         string value = listVCard["Organization"].Substring(2);
-                        pictureBoxCamera.ImageLocation = "https://datan.fr/assets/imgs/deputes_original/depute_" + value + ".png";
+
+                        sousF.openChildForm(new FormCarteInfoDepute(value, listVCard["Name"], listVCard["FirstName"], listVCard["Email"]));
 
                         if (modeleDepute.EntreeDepute(listVCard["Organization"]))
                         {
-                            MessageBox.Show("Entrée enregistrée !");
+                            //MessageBox.Show("Entrée enregistrée !");
                         }
                         else
                         {
@@ -140,7 +136,7 @@ namespace AccesHemiCycle.View
                     }
                     else
                     {
-                        MessageBox.Show("Accès cependant refusé !");
+                        MessageBox.Show("Accès refusé !");
                     }
                 }
                 else

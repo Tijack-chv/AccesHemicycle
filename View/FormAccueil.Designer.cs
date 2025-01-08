@@ -33,7 +33,6 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonRead = new System.Windows.Forms.Button();
             this.labelCamera = new System.Windows.Forms.Label();
-            this.textBoxContenu = new System.Windows.Forms.TextBox();
             this.comboBoxCamera = new System.Windows.Forms.ComboBox();
             this.panelBackCamera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
@@ -86,26 +85,16 @@
             // 
             this.labelCamera.AutoSize = true;
             this.labelCamera.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCamera.Location = new System.Drawing.Point(807, 23);
+            this.labelCamera.Location = new System.Drawing.Point(866, 15);
             this.labelCamera.Name = "labelCamera";
             this.labelCamera.Size = new System.Drawing.Size(59, 16);
             this.labelCamera.TabIndex = 11;
             this.labelCamera.Text = "Camera :";
             // 
-            // textBoxContenu
-            // 
-            this.textBoxContenu.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxContenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContenu.Location = new System.Drawing.Point(845, 97);
-            this.textBoxContenu.Multiline = true;
-            this.textBoxContenu.Name = "textBoxContenu";
-            this.textBoxContenu.Size = new System.Drawing.Size(254, 324);
-            this.textBoxContenu.TabIndex = 13;
-            // 
             // comboBoxCamera
             // 
             this.comboBoxCamera.FormattingEnabled = true;
-            this.comboBoxCamera.Location = new System.Drawing.Point(869, 20);
+            this.comboBoxCamera.Location = new System.Drawing.Point(930, 12);
             this.comboBoxCamera.Name = "comboBoxCamera";
             this.comboBoxCamera.Size = new System.Drawing.Size(230, 21);
             this.comboBoxCamera.TabIndex = 10;
@@ -119,7 +108,6 @@
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonRead);
             this.Controls.Add(this.labelCamera);
-            this.Controls.Add(this.textBoxContenu);
             this.Controls.Add(this.comboBoxCamera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAccueil";
@@ -140,7 +128,6 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonRead;
         private System.Windows.Forms.Label labelCamera;
-        private System.Windows.Forms.TextBox textBoxContenu;
         private System.Windows.Forms.ComboBox comboBoxCamera;
     }
 }
