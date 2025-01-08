@@ -39,7 +39,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(565, 81);
+            this.buttonStart.Location = new System.Drawing.Point(589, 83);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(160, 41);
             this.buttonStart.TabIndex = 0;
@@ -50,7 +50,7 @@
             // pictureBoxCamera
             // 
             this.pictureBoxCamera.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxCamera.Location = new System.Drawing.Point(27, 81);
+            this.pictureBoxCamera.Location = new System.Drawing.Point(51, 83);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
             this.pictureBoxCamera.Size = new System.Drawing.Size(511, 464);
             this.pictureBoxCamera.TabIndex = 1;
@@ -59,7 +59,7 @@
             // comboBoxCamera
             // 
             this.comboBoxCamera.FormattingEnabled = true;
-            this.comboBoxCamera.Location = new System.Drawing.Point(182, 30);
+            this.comboBoxCamera.Location = new System.Drawing.Point(206, 32);
             this.comboBoxCamera.Name = "comboBoxCamera";
             this.comboBoxCamera.Size = new System.Drawing.Size(271, 21);
             this.comboBoxCamera.TabIndex = 2;
@@ -67,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 26);
+            this.label1.Location = new System.Drawing.Point(76, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // buttonRead
             // 
-            this.buttonRead.Location = new System.Drawing.Point(768, 81);
+            this.buttonRead.Location = new System.Drawing.Point(792, 83);
             this.buttonRead.Name = "buttonRead";
             this.buttonRead.Size = new System.Drawing.Size(160, 41);
             this.buttonRead.TabIndex = 4;
@@ -86,7 +86,7 @@
             // textBoxContenu
             // 
             this.textBoxContenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContenu.Location = new System.Drawing.Point(582, 161);
+            this.textBoxContenu.Location = new System.Drawing.Point(606, 163);
             this.textBoxContenu.Multiline = true;
             this.textBoxContenu.Name = "textBoxContenu";
             this.textBoxContenu.Size = new System.Drawing.Size(335, 140);

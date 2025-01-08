@@ -86,42 +86,14 @@ namespace AccesHemiCycle
         /// <param name="e"></param>
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (finalVideo.IsRunning == true) { 
-                finalVideo.Stop(); 
+            if (finalVideo.IsRunning == true)
+            {
+                finalVideo.Stop();
             }
         }
 
         /// <summary>
-        /// Permet de lire le contenu du Qr Code
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timerCamera_Tick(object sender, EventArgs e)
-        {
-            BarcodeReader reader = new BarcodeReader();
-            Result result = reader.Decode((Bitmap)pictureBoxCamera.Image);
-
-            try
-            {
-                string decoded = result?.Text?.Trim();
-                if (decoded != "")
-                {
-                    Form1_FormClosing(sender, null);
-                    textBoxContenu.Text = decoded;
-                    //MessageBox.Show("Le Qr Code a été reconnu, il est bien de type VCard !");
-                } else
-                {
-                    MessageBox.Show("Le Qr Code n'est pas reconnu !");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Impossible de lire le Qr Code !");
-            }
-        }
-
-        /// <summary>
-        /// Arrête la lecture du Qr Code et récupère si reconnu
+        /// Analyse le rendu de la caméra afin de lire le contenu du Qr Code si celui-ci est de type VCard
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -136,8 +108,30 @@ namespace AccesHemiCycle
                 if (decoded != "" && IsVcard(decoded))
                 {
                     Form1_FormClosing(sender, null);
-                    textBoxContenu.Text = decoded;
+
+                    Dictionary<string,string> listVCard = new Dictionary<string,string>();
+                    listVCard = RecuperationVCard(decoded);
+
+                    textBoxContenu.Text = listVCard["Name"];
+                    textBoxContenu.Text += Environment.NewLine;
+                    textBoxContenu.Text += listVCard["FirstName"];
+                    textBoxContenu.Text += Environment.NewLine;
+                    textBoxContenu.Text += listVCard["Organization"];
+                    textBoxContenu.Text += Environment.NewLine;
+                    textBoxContenu.Text += listVCard["Email"];
+
+                    ModeleDepute modeleDepute = new ModeleDepute();
+
                     MessageBox.Show("Le Qr Code a été reconnu, il est bien de type VCard !");
+
+                    if (modeleDepute.AccesDepute(listVCard["Organization"], listVCard["Name"], listVCard["FirstName"], listVCard["Email"]))
+                    {
+                        MessageBox.Show("Accès autorisé !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Accès cependant refusé !");
+                    }
                 }
                 else
                 {
@@ -160,6 +154,54 @@ namespace AccesHemiCycle
             if (content == null) return false;
             //on peut rajouter d'autres conditions pour être plus précis comme pour N: ou FN: etc, pour le formalisme du Qr Code
             else return content.StartsWith("BEGIN:VCARD") && content.Contains("VERSION:") && content.EndsWith("END:VCARD");
+        }
+
+        /// <summary>
+        /// Permet de récupérer les éléments composant un Qr Code de type VCard
+        /// </summary>
+        /// <param name="vcardContent"></param>
+        /// <returns></returns>
+        private Dictionary<string, string> RecuperationVCard(string vCardContenu)
+        {
+            var vcardData = new Dictionary<string, string>();
+            var lines = vCardContenu.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("N:")) // Nom complet
+                {
+                    vcardData["Name"] = line.Substring(2).Trim();
+                    string[] nameParts = vcardData["Name"].Split(';');
+                    string name = "";
+                    string firstname = "";
+                    foreach (var item in nameParts)
+                    {
+                        if (name == "")
+                        {
+                            name = item;
+                        }
+                        else
+                        {
+                            firstname = item;
+                        }
+                    }
+                    vcardData["Name"] = name;
+                    vcardData["FirstName"] = firstname;
+                }
+                else if (line.StartsWith("FN:")) // Nom formaté
+                {
+                    vcardData["FormattedName"] = line.Substring(3).Trim();
+                }
+                else if (line.StartsWith("ORG:")) // Organisation
+                {
+                    vcardData["Organization"] = line.Substring(4).Trim();
+                }
+                else if (line.StartsWith("EMAIL;")) // Email
+                {
+                    vcardData["Email"] = line.Substring(14).Trim().Substring(6); // récupérer l'email après EMAIL;TYPE=INTERNET:ERNET:
+                }
+            }
+            return vcardData;
         }
     }
 }
