@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AccesHemiCycle
 {
@@ -36,6 +37,34 @@ namespace AccesHemiCycle
                         test = false;
                     }
 
+                    reader.Close();
+                    conn.Connexion.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                test = false;
+            }
+
+            return test;
+        }
+
+        public bool EntreeDepute(string identite)
+        {
+            bool test = true;
+            conn = new ConnexionBdd();
+            DateTime date = DateTime.Now;
+            string rqtSql = "INSERT INTO entree_depute(idDepute, dateEntree) VALUES (@id, @date);";
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.Connexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", identite);
+                    cmd.Parameters.AddWithValue("@date", date);
+                    conn.Connexion.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
                     reader.Close();
                     conn.Connexion.Close();
                 }

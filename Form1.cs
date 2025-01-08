@@ -127,6 +127,18 @@ namespace AccesHemiCycle
                     if (modeleDepute.AccesDepute(listVCard["Organization"], listVCard["Name"], listVCard["FirstName"], listVCard["Email"]))
                     {
                         MessageBox.Show("Accès autorisé !");
+
+                        string value = listVCard["Organization"].Substring(2);
+                        pictureBoxCamera.ImageLocation = "https://datan.fr/assets/imgs/deputes_original/depute_"+value+".png";
+
+                        if (modeleDepute.EntreeDepute(listVCard["Organization"]))
+                        {
+                            MessageBox.Show("Entrée enregistrée !");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur lors de l'enregistrement de l'entrée !");
+                        }
                     }
                     else
                     {
@@ -138,9 +150,9 @@ namespace AccesHemiCycle
                     MessageBox.Show("Le Qr Code n'est pas reconnu !");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Impossible de lire le Qr Code !");
+                MessageBox.Show(ex.Message);
             }
         }
 
