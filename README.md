@@ -22,7 +22,7 @@ Pour installer l'application, il suffit de récupérer l'ensemble du projet C# e
 Le script de la base de données se trouve dans un fichier à la racine du projet :
 - /Database/scriptBDD-AccesHemicycle 
 
-
+Ce projet a également été partagé sur un serveur windows, dont le fichier .exe de téléchargement a été transmis dessus.
 
 
 ## Demo
@@ -33,7 +33,7 @@ Dans un deuxième temps, vous pouvez accéder à la page des députés dont une 
 Cette page ouvre un tableau avec l'ensemble des députés actif, avec un système de pagination et une barre de recherche sur le nom et/ou le prénom. Vous avez la possibilité d'ouvrir la photo du député via un clic droit sur le député sélectionné sur la datagridview. Et vous pouvez également accepter qu'un député puisse entrer dans l'hémicycle sans carte (dans le cas par exemple où celui-ci n'a pas sa carte mais arrive à prouver son identité). Il est alors, de la même manière que sur l'accès basique, enregistré sur la date et l'heure de son entrée dans l'hémicycle. En plus, une ligne dans les logs est saisie sur son entrée, puisqu'elle n'est pas celle prévue.\
 Vous pouvez également afficher la page plan de l'hémicycle qui est simplement l'affichage du plan de celui-ci.\
 Vous pouvez également accéder aux réseaux sociaux de l'Assemblée nationale en haut de l'application.
-
+Au final, j'ai pu publié le projet avec les signatures des manifestes ClickOnce, ajouter les paramètres de sécurité ClickOnce. Au final, on récupère un répertoire contenant les fichiers de configuration de l'application et avec chaque version, et un fichier executable permettant le téléchargement de celui-ci.
 
 ## Explications des choix
 
