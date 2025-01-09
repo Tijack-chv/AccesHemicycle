@@ -149,6 +149,7 @@
     <Compile Include="Controller\SousFormulaire.cs" />
     <Compile Include="Model\ConnexionBdd.cs" />
     <Compile Include="Model\ModeleDroit.cs" />
+    <Compile Include="Model\ModeleLog.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

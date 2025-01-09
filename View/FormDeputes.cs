@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccesHemiCycle.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,6 +87,8 @@ namespace AccesHemiCycle.View
 
                 if (modeleDepute.EntreeDepute(dataGridViewDeputes.CurrentRow.Cells[0].Value.ToString()))
                 {
+                    ModeleLog modeleLog = new ModeleLog();
+                    modeleLog.Log("Entrée du député "+ dataGridViewDeputes.CurrentRow.Cells[0].Value.ToString() + " à la main");
                     MessageBox.Show("Entrée enregistrée !");
                 }
                 else
