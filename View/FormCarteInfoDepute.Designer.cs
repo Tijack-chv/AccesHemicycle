@@ -49,7 +49,7 @@
             this.pictureBoxDepute.BackColor = System.Drawing.Color.White;
             this.pictureBoxDepute.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxDepute.Name = "pictureBoxDepute";
-            this.pictureBoxDepute.Size = new System.Drawing.Size(270, 270);
+            this.pictureBoxDepute.Size = new System.Drawing.Size(270, 262);
             this.pictureBoxDepute.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDepute.TabIndex = 0;
             this.pictureBoxDepute.TabStop = false;
@@ -59,7 +59,7 @@
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold);
             this.labelFirstName.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelFirstName.Location = new System.Drawing.Point(201, 346);
+            this.labelFirstName.Location = new System.Drawing.Point(201, 323);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(70, 21);
             this.labelFirstName.TabIndex = 1;
@@ -70,7 +70,7 @@
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold);
             this.labelName.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelName.Location = new System.Drawing.Point(201, 307);
+            this.labelName.Location = new System.Drawing.Point(201, 284);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(48, 21);
             this.labelName.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.labelMail.AutoSize = true;
             this.labelMail.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold);
             this.labelMail.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelMail.Location = new System.Drawing.Point(210, 386);
+            this.labelMail.Location = new System.Drawing.Point(210, 363);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(44, 21);
             this.labelMail.TabIndex = 3;
@@ -90,7 +90,7 @@
             // panelLabelName
             // 
             this.panelLabelName.BackColor = System.Drawing.Color.Red;
-            this.panelLabelName.Location = new System.Drawing.Point(120, 329);
+            this.panelLabelName.Location = new System.Drawing.Point(120, 306);
             this.panelLabelName.Name = "panelLabelName";
             this.panelLabelName.Size = new System.Drawing.Size(200, 2);
             this.panelLabelName.TabIndex = 4;
@@ -98,7 +98,7 @@
             // panelLabelFirstName
             // 
             this.panelLabelFirstName.BackColor = System.Drawing.Color.Red;
-            this.panelLabelFirstName.Location = new System.Drawing.Point(120, 368);
+            this.panelLabelFirstName.Location = new System.Drawing.Point(120, 345);
             this.panelLabelFirstName.Name = "panelLabelFirstName";
             this.panelLabelFirstName.Size = new System.Drawing.Size(200, 2);
             this.panelLabelFirstName.TabIndex = 5;
@@ -106,7 +106,7 @@
             // panelLabelMail
             // 
             this.panelLabelMail.BackColor = System.Drawing.Color.Red;
-            this.panelLabelMail.Location = new System.Drawing.Point(120, 409);
+            this.panelLabelMail.Location = new System.Drawing.Point(120, 386);
             this.panelLabelMail.Name = "panelLabelMail";
             this.panelLabelMail.Size = new System.Drawing.Size(200, 2);
             this.panelLabelMail.TabIndex = 6;
@@ -117,7 +117,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 437);
+            this.panel1.Size = new System.Drawing.Size(10, 403);
             this.panel1.TabIndex = 7;
             // 
             // panel2
@@ -126,14 +126,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(466, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 437);
+            this.panel2.Size = new System.Drawing.Size(10, 403);
             this.panel2.TabIndex = 8;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(10, 427);
+            this.panel3.Location = new System.Drawing.Point(10, 393);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(456, 10);
             this.panel3.TabIndex = 9;
@@ -151,9 +151,9 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.Red;
             this.panel5.Controls.Add(this.pictureBoxDepute);
-            this.panel5.Location = new System.Drawing.Point(92, 16);
+            this.panel5.Location = new System.Drawing.Point(92, 13);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(276, 276);
+            this.panel5.Size = new System.Drawing.Size(276, 268);
             this.panel5.TabIndex = 11;
             // 
             // FormCarteInfoDepute
@@ -161,7 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(476, 437);
+            this.ClientSize = new System.Drawing.Size(476, 403);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

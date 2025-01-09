@@ -32,6 +32,12 @@ namespace AccesHemiCycle
             InitializeComponent();
             sousF = new SousFormulaire(panelBody);
             sousF.openChildForm(new FormAccueil());
+
+            // Disable the minimize, maximize, and close buttons
+            this.ControlBox = false;
+
+            // Allow the form to be moved
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         #endregion
 

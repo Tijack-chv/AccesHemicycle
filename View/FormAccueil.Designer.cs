@@ -44,7 +44,7 @@
             this.panelBackCamera.Controls.Add(this.pictureBoxCamera);
             this.panelBackCamera.Location = new System.Drawing.Point(302, 23);
             this.panelBackCamera.Name = "panelBackCamera";
-            this.panelBackCamera.Size = new System.Drawing.Size(476, 437);
+            this.panelBackCamera.Size = new System.Drawing.Size(476, 403);
             this.panelBackCamera.TabIndex = 14;
             // 
             // pictureBoxCamera
@@ -52,7 +52,7 @@
             this.pictureBoxCamera.BackColor = System.Drawing.Color.White;
             this.pictureBoxCamera.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
-            this.pictureBoxCamera.Size = new System.Drawing.Size(470, 431);
+            this.pictureBoxCamera.Size = new System.Drawing.Size(470, 397);
             this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxCamera.TabIndex = 1;
             this.pictureBoxCamera.TabStop = false;
@@ -61,7 +61,7 @@
             // 
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.Location = new System.Drawing.Point(490, 466);
+            this.buttonStart.Location = new System.Drawing.Point(494, 432);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(83, 41);
             this.buttonStart.TabIndex = 9;
@@ -73,7 +73,7 @@
             // 
             this.buttonRead.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonRead.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold);
-            this.buttonRead.Location = new System.Drawing.Point(1075, 470);
+            this.buttonRead.Location = new System.Drawing.Point(1049, 432);
             this.buttonRead.Name = "buttonRead";
             this.buttonRead.Size = new System.Drawing.Size(85, 41);
             this.buttonRead.TabIndex = 12;
@@ -87,7 +87,7 @@
             this.labelCamera.AutoSize = true;
             this.labelCamera.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCamera.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelCamera.Location = new System.Drawing.Point(866, 15);
+            this.labelCamera.Location = new System.Drawing.Point(851, 15);
             this.labelCamera.Name = "labelCamera";
             this.labelCamera.Size = new System.Drawing.Size(59, 16);
             this.labelCamera.TabIndex = 11;
@@ -97,7 +97,7 @@
             // 
             this.comboBoxCamera.ForeColor = System.Drawing.Color.MidnightBlue;
             this.comboBoxCamera.FormattingEnabled = true;
-            this.comboBoxCamera.Location = new System.Drawing.Point(930, 12);
+            this.comboBoxCamera.Location = new System.Drawing.Point(915, 12);
             this.comboBoxCamera.Name = "comboBoxCamera";
             this.comboBoxCamera.Size = new System.Drawing.Size(230, 21);
             this.comboBoxCamera.TabIndex = 10;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 523);
+            this.ClientSize = new System.Drawing.Size(1156, 484);
             this.Controls.Add(this.panelBackCamera);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.buttonRead);

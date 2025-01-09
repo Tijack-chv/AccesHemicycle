@@ -88,13 +88,13 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1172, 102);
+            this.panelHeader.Size = new System.Drawing.Size(1156, 102);
             this.panelHeader.TabIndex = 6;
             // 
             // panelExit
             // 
             this.panelExit.Controls.Add(this.labelExit);
-            this.panelExit.Location = new System.Drawing.Point(1058, 3);
+            this.panelExit.Location = new System.Drawing.Point(1042, 3);
             this.panelExit.Name = "panelExit";
             this.panelExit.Size = new System.Drawing.Size(109, 40);
             this.panelExit.TabIndex = 11;
@@ -206,7 +206,7 @@
             this.panelRouge.BackColor = System.Drawing.Color.Red;
             this.panelRouge.Location = new System.Drawing.Point(824, 95);
             this.panelRouge.Name = "panelRouge";
-            this.panelRouge.Size = new System.Drawing.Size(347, 6);
+            this.panelRouge.Size = new System.Drawing.Size(330, 6);
             this.panelRouge.TabIndex = 6;
             // 
             // panelTwitter
@@ -275,7 +275,7 @@
             this.panelBackHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBackHeader.Location = new System.Drawing.Point(0, 102);
             this.panelBackHeader.Name = "panelBackHeader";
-            this.panelBackHeader.Size = new System.Drawing.Size(1172, 83);
+            this.panelBackHeader.Size = new System.Drawing.Size(1156, 83);
             this.panelBackHeader.TabIndex = 7;
             // 
             // panelLabelHemicycle
@@ -374,7 +374,7 @@
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(0, 185);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1172, 523);
+            this.panelBody.Size = new System.Drawing.Size(1156, 484);
             this.panelBody.TabIndex = 9;
             // 
             // Form1
@@ -382,11 +382,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1172, 708);
+            this.ClientSize = new System.Drawing.Size(1156, 669);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelBackHeader);
             this.Controls.Add(this.panelHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1172, 708);
             this.MinimumSize = new System.Drawing.Size(1172, 708);

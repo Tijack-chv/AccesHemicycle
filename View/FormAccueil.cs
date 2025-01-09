@@ -241,13 +241,13 @@ namespace AccesHemiCycle.View
 
             if (!buttonStart.Visible)
             {
-                buttonRead.Location = new Point(490, 466);
+                buttonRead.Location = new Point(494, 432);
                 buttonStart.Location = new Point(1075, 470);
             }
             else
             {
                 buttonRead.Location = new Point(1075, 470);
-                buttonStart.Location = new Point(490, 466);
+                buttonStart.Location = new Point(494, 432);
             }
         }
         #endregion
