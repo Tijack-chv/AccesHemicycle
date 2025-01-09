@@ -94,9 +94,9 @@
             // panelExit
             // 
             this.panelExit.Controls.Add(this.labelExit);
-            this.panelExit.Location = new System.Drawing.Point(1042, 3);
+            this.panelExit.Location = new System.Drawing.Point(1112, 3);
             this.panelExit.Name = "panelExit";
-            this.panelExit.Size = new System.Drawing.Size(109, 40);
+            this.panelExit.Size = new System.Drawing.Size(39, 40);
             this.panelExit.TabIndex = 11;
             // 
             // labelExit
@@ -104,11 +104,11 @@
             this.labelExit.AutoSize = true;
             this.labelExit.BackColor = System.Drawing.Color.Transparent;
             this.labelExit.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExit.Location = new System.Drawing.Point(7, 5);
+            this.labelExit.Location = new System.Drawing.Point(5, 5);
             this.labelExit.Name = "labelExit";
-            this.labelExit.Size = new System.Drawing.Size(95, 31);
+            this.labelExit.Size = new System.Drawing.Size(30, 31);
             this.labelExit.TabIndex = 3;
-            this.labelExit.Text = "Quitter";
+            this.labelExit.Text = "X";
             this.labelExit.Click += new System.EventHandler(this.labelExit_Click);
             this.labelExit.MouseLeave += new System.EventHandler(this.labelExit_MouseLeave);
             this.labelExit.MouseHover += new System.EventHandler(this.labelExit_MouseHover);
