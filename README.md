@@ -27,8 +27,6 @@ Le script de la base de données se trouve dans un fichier à la racine du proje
 
 ## Demo
 
-(Insertion du lien de la vidéo gif)
-
 L'application permet de vérifier les personnes voulant accéder à l'hémicycle.
 Dans un premier temps, au niveau de la page d'accueil, vous pouvez choisir la caméra que vous voulez utiliser pour scanner les Qr Code parmi une liste présente à droite de la page. Le bouton 'lancer' permet d'activer la caméra, et le bouton qui apparaît ensuite permet de scanner la caméra à l'instant du clic. Il va dans un premier temps vérifier que le QR Code est de type V Card. Ensuite, il compare l'id, le nom, le prénom et l'adresse-email renseignés dans le QR Code avec les informations dans la base de données. Si une réponse positive est retournée, les informations du député sont affichées à l'écran et un enregistrement est exécuté dans la base de données sur l'entrée dans l'hémicycle de cette personne.\
 Dans un deuxième temps, vous pouvez accéder à la page des députés dont une demande de connexion est nécessaire avec l'email et mot de passe suivant : 'admin@droitAN.fr', 'adminpassword'.\
