@@ -40,7 +40,7 @@
             // 
             // panelBackCamera
             // 
-            this.panelBackCamera.BackColor = System.Drawing.Color.Black;
+            this.panelBackCamera.BackColor = System.Drawing.Color.MidnightBlue;
             this.panelBackCamera.Controls.Add(this.pictureBoxCamera);
             this.panelBackCamera.Location = new System.Drawing.Point(302, 23);
             this.panelBackCamera.Name = "panelBackCamera";
@@ -53,7 +53,7 @@
             this.pictureBoxCamera.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
             this.pictureBoxCamera.Size = new System.Drawing.Size(470, 431);
-            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxCamera.TabIndex = 1;
             this.pictureBoxCamera.TabStop = false;
             // 
@@ -61,7 +61,7 @@
             // 
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.Location = new System.Drawing.Point(444, 466);
+            this.buttonStart.Location = new System.Drawing.Point(490, 466);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(83, 41);
             this.buttonStart.TabIndex = 9;
@@ -73,18 +73,20 @@
             // 
             this.buttonRead.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonRead.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold);
-            this.buttonRead.Location = new System.Drawing.Point(533, 466);
+            this.buttonRead.Location = new System.Drawing.Point(1075, 470);
             this.buttonRead.Name = "buttonRead";
             this.buttonRead.Size = new System.Drawing.Size(85, 41);
             this.buttonRead.TabIndex = 12;
             this.buttonRead.Text = "Scan";
             this.buttonRead.UseVisualStyleBackColor = true;
+            this.buttonRead.Visible = false;
             this.buttonRead.Click += new System.EventHandler(this.buttonRead_Click);
             // 
             // labelCamera
             // 
             this.labelCamera.AutoSize = true;
             this.labelCamera.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCamera.ForeColor = System.Drawing.Color.MidnightBlue;
             this.labelCamera.Location = new System.Drawing.Point(866, 15);
             this.labelCamera.Name = "labelCamera";
             this.labelCamera.Size = new System.Drawing.Size(59, 16);
@@ -93,6 +95,7 @@
             // 
             // comboBoxCamera
             // 
+            this.comboBoxCamera.ForeColor = System.Drawing.Color.MidnightBlue;
             this.comboBoxCamera.FormattingEnabled = true;
             this.comboBoxCamera.Location = new System.Drawing.Point(930, 12);
             this.comboBoxCamera.Name = "comboBoxCamera";

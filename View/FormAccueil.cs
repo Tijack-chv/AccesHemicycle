@@ -14,6 +14,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using ZXing;
 using ZXing.Aztec;
+using Point = System.Drawing.Point;
 
 namespace AccesHemiCycle.View
 {
@@ -44,6 +45,7 @@ namespace AccesHemiCycle.View
             foreach (FilterInfo Device in captureDevice) comboBoxCamera.Items.Add(Device.Name);
             comboBoxCamera.SelectedIndex = 0;
             finalVideo = new VideoCaptureDevice();
+            buttonRead.Enabled = true;
         }
         #endregion
 
@@ -62,6 +64,7 @@ namespace AccesHemiCycle.View
             finalVideo = new VideoCaptureDevice(captureDevice[comboBoxCamera.SelectedIndex].MonikerString);
             finalVideo.NewFrame += new NewFrameEventHandler(FinalVideo_NewFrame);
             finalVideo.Start();
+            positionnement();
         }
         #endregion
 
@@ -149,6 +152,7 @@ namespace AccesHemiCycle.View
                     {
                         MessageBox.Show("Accès refusé !");
                     }
+                    positionnement();
                 }
                 else
                 {
@@ -223,6 +227,28 @@ namespace AccesHemiCycle.View
                 }
             }
             return vcardData;
+        }
+        #endregion
+
+        /// <summary>
+        /// Permet de changer la position des boutons en fonction de l'état de la caméra
+        /// </summary>
+        #region positionnement
+        public void positionnement()
+        {
+            buttonStart.Visible = !buttonStart.Visible;
+            buttonRead.Visible = !buttonRead.Visible;
+
+            if (!buttonStart.Visible)
+            {
+                buttonRead.Location = new Point(490, 466);
+                buttonStart.Location = new Point(1075, 470);
+            }
+            else
+            {
+                buttonRead.Location = new Point(1075, 470);
+                buttonStart.Location = new Point(490, 466);
+            }
         }
         #endregion
     }
